@@ -2,25 +2,28 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Hello, World! - A-Frame</title>
-    <meta name="description" content="Hello, World! - A-Frame">
+    <title>VR Mockups v1.0</title>
+    <meta name="description" content="VR Mockups v1.0 designed by Vincent Munoz and based on A-Frame.">
     <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
-    <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
 </head>
 <body>
 <a-scene>
     <a-assets>
-        <img id="sphereTexture" src="https://i.imgur.com/mYmmbrp.jpg">
-        <img id="skyTexture" src="/img/test2.png">
+        <img id="background" src="img/background.jpg">
+        <img id="content" src="img/content.png">
+        <img id="footer" src="img/footer.png">
+        <img id="header" src="img/header.png">
+        <img id="map" src="img/map.jpg">
     </a-assets>
-    <a-ring color="teal" position="0 2.25 -5" radius-inner="1.35" radius-outer="1.45"></a-ring>
-    <a-sphere position="0 2.25 -5" radius="1" src="#sphereTexture">
-        <a-animation attribute="rotation" dur="10000" easing="ease" fill="forwards" to="0 360 0" repeat="indefinite"></a-animation>
-    </a-sphere>
-    <a-entity bmfont-text="text: Hello, A-Frame!; color: #fff" position="0 2.25 -3" scale="1.5 1.5 1.5"></a-entity>
-    <a-sky radius="50" src="#skyTexture"></a-sky>
-    <a-light type="ambient" color="#445451"></a-light>
-    <a-light type="point" intensity="2" position="2 4 4"></a-light>
+
+    <a-camera fov="90" position="0 1.8 0" near="0.2" cursor-color="#1e97fe">
+        <a-cursor></a-cursor>
+    </a-camera>
+    <a-curvedimage src="#content" height="10" radius="6" theta-length="360" rotation="0 180 0" position="0 1.8 0" scale="1 1 1"></a-curvedimage>
+    <a-image src="#header" width="6" height="2" rotation="30 0 0" position="0 6 -4" scale="1 1 1"></a-image>
+    <a-image src="#footer" width="6" height="2" rotation="-45 0 0" position="0 -2.5 -4" scale="1 1 1"></a-image>
+    <a-sky src="#background" rotation="0 0 0"></a-sky>
+
 </a-scene>
 </body>
 </html>
