@@ -2,9 +2,23 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>VR Mockups v1.0</title>
+    <title>VR Mockups v1.0.1</title>
     <meta name="description" content="VR Mockups v1.0 designed by Vincent Munoz and based on A-Frame.">
-    <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/v2.1.1/dist/aframe-extras.loaders.min.js"></script>
+    <script>
+        AFRAME.registerComponent('scale-on-mouseenter', {
+            schema: {
+                to: {default: '2.5 2.5 2.5'}
+            },
+            init: function () {
+                var data = this.data;
+                this.el.addEventListener('click', function () {
+                    this.setAttribute('scale', data.to);
+                });
+            }
+        });
+    </script>
 </head>
 <body>
 <a-scene>
@@ -19,9 +33,13 @@
     <a-camera fov="90" position="0 1.8 0" near="0.2" cursor-color="#1e97fe">
         <a-cursor></a-cursor>
     </a-camera>
-    <a-curvedimage src="#content" height="10" radius="6" theta-length="360" rotation="0 180 0" position="0 1.8 0" scale="1 1 1"></a-curvedimage>
+    <!--<a-curvedimage src="#content" height="10" radius="6" theta-length="360" rotation="0 180 0" position="0 1.8 0" scale="1 1 1"></a-curvedimage>-->
     <a-image src="#header" width="6" height="2" rotation="30 0 0" position="0 6 -4" scale="1 1 1"></a-image>
-    <a-image src="#footer" width="6" height="2" rotation="-45 0 0" position="0 -2.5 -4" scale="1 1 1"></a-image>
+    <a-image src="#footer" width="6" height="2" rotation="-45 0 0" position="0 -2.5 -4" scale="1 1 1">
+        <a-animation attribute="scale" begin="mouseenter" dur="300" to="1.3 1.3 1.3"></a-animation>
+        <a-animation attribute="scale" begin="mouseleave" dur="300" to="1 1 1"></a-animation>
+    </a-image>
+    <a-collada-model src="img/room.dae" position="0 0 -3.5" scale="2 2 2"></a-collada-model>
     <a-sky src="#background" rotation="0 0 0"></a-sky>
 
 </a-scene>
