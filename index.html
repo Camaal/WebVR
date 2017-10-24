@@ -24,25 +24,11 @@
 <a-scene>
     <a-assets>
         <img id="background" src="img/porch.jpg">
-        <img id="content" src="img/content.png">
-        <img id="footer" src="img/footer.png">
-        <img id="header" src="img/header.png">
-        <img id="map" src="img/map.jpg">
-        <a-asset-item id="test-obj" src="img/test.obj"></a-asset-item>
-        <a-asset-item id="test-mtl" src="img/test.mtl"></a-asset-item>
     </a-assets>
 
     <a-camera fov="90" position="0 1.8 0" near="0.2" cursor-color="#1e97fe">
         <a-cursor></a-cursor>
     </a-camera>
-    <!--<a-curvedimage src="#content" height="10" radius="6" theta-length="360" rotation="0 180 0" position="0 1.8 0" scale="1 1 1"></a-curvedimage>-->
-    <a-image src="#header" width="6" height="2" rotation="30 0 0" position="0 6 -4" scale="1 1 1"></a-image>
-    <a-image src="#footer" width="6" height="2" rotation="-45 0 0" position="0 -2.5 -4" scale="1 1 1">
-        <a-animation attribute="scale" begin="mouseenter" dur="300" to="1.3 1.3 1.3"></a-animation>
-        <a-animation attribute="scale" begin="mouseleave" dur="300" to="1 1 1"></a-animation>
-    </a-image>
-    <!--<a-collada-model src="img/room.dae" position="0 0 -3.5" scale="2 2 2"></a-collada-model>-->
-    <!--<a-entity obj-model="obj: #test-obj; mtl: #test-mtl"></a-entity>-->
     <a-sky src="#background" rotation="0 0 0"></a-sky>
 
 </a-scene>
