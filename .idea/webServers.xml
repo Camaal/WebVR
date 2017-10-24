@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="6c368587-7415-4e77-a2a7-ef19f17f608d" name="camaalmoten.com" url="http://www.camaalmoten.com">
-        <fileTransfer host="camaalmoten.com" port="22" accessType="SFTP">
+      <webServer id="6c368587-7415-4e77-a2a7-ef19f17f608d" name="camaalmoten.com" url="https://www.camaalmoten.com">
+        <fileTransfer host="home293990412.1and1-data.host" port="22" accessType="SFTP">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>
