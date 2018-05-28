@@ -3,6 +3,7 @@
     <title>Text</title>
     <meta name="description" content="Text - A-Frame">
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
 </head>
 <body>
 <a-scene background="color: #222">
@@ -64,18 +65,33 @@
         <a-entity position="0 0.2 0" geometry="primitive: plane; width: auto; height: auto" material="color: #333"
                 text="color: red; align: right; value: [RIGHT ALIGNED]; width: 2; ">
         </a-entity>
-        <a-entity mixin="marker" position="0 0.4 0.01"></a-entity>
-        <a-entity position="0 0.4 0" geometry="primitive: plane; width: auto; height: auto" material="color: #eee"
-                text="color: blue; align: center; value: [CENTER ALIGNED]; width: 2; ">
+        <a-entity mixin="marker"
+                position="0 0.4 0.01"
+                event-set__mouseenter="_target: #eye-1; visible: true"
+                event-set__mouseleave="_target: #eye-1; visible: false"
+        ></a-entity>
+        <a-entity
+                id="eye-1"
+                position="0 0.4 0"
+                geometry="primitive: plane; width: auto; height: auto"
+                material="color: #eee"
+                text="color: blue; align: center; value: [CENTER ALIGNED]; width: 2;"
+                visible="false">
         </a-entity>
     </a-entity>
 
     <a-entity position="0 1.8 2">
-        <a-entity camera look-controls wasd-controls></a-entity>
+        <a-entity camera look-controls wasd-controls>
+            <a-cursor></a-cursor>
+        </a-entity>
     </a-entity>
 </a-scene>
 
 <script>
+    //Pop-up message
+    document.querySelector('#yourHotspot').addEventListener('click', function () {
+        document.querySelector('#yourText').setAttribute('visible', true);
+    });
     // Animate opacity.
     var opacity = document.getElementById('opacity');
     var obj = {opacity: 0};
